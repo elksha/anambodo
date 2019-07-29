@@ -1,0 +1,104 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}?ver=2">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css?" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css?" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'home' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
+    <div style="background-image:url('{% static '45.png' %}'); background-size: cover; background-position: center; height: 100px;">
+        <!-- <i class="fas fa-book"></i>
+        <div class="blank"></div>
+        <strong style="font-family:Daehan;">안암보도</strong> -->
+    </div>
+    </a>
+  <!-- <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li>
+            <li><a href="#" class="text-white">Email me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div style="border-top-style: solid; border-top-color: pink; border-width: 1px; border-bottom-style: solid; border-bottom-color: pink;">
+    <ul class="nav nav-tabs bg-light">
+    <div class="container d-flex justify-content-between">
+    <div class="item">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}" style="color:black">About</a>
+  </li>
+  <li classs="nav-item">
+    <div class="verline">
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'detail2' %}" style="color:black">Detail</a>
+  </li>
+   </div>
+   <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  </div>
+  </div>
+</ul>
+</div>
+  <div class="next">
+{% block content %}
+    <section class="jumbotron text-center" style="background-image: url( '{% static '14.png' %}' ); background-size: cover; background-position: center; height: 300px; margin-bottom: 0px;">
+      <div class="container">
+        <h1 style="font-family: 'om4'; font-size: 40px;"></h1>
+        <div style="position:relative; height:10px;"></div>
+        <p style="font-family: 'om3'; font-size: 25px; color:gray;"></p>
+        <p>
+          <a href="{% url 'new' %}" class="btn btn-info my-2" style="position: relative; top: 100px;">확인하러가기</a>
+        </p>
+      </div>
+    </section>
+        <div id="map" style="height: 600px; width: 100%;"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var anam = {lat: 37.586330, lng: 127.029421};
+  var kosa = {lat: 37.586429, lng: 127.032775};
+  var kodae = {lat: 37.591360, lng: 127.036316};
+  var jeong = {lat: 37.588240, lng: 127.034642};
+  var korea = {lat: 37.588728, lng: 127.033076};
+  var kohu = {lat: 37.592644, lng: 127.036305};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 16, center: korea});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: anam, map: map});
+  var marker = new google.maps.Marker({position: kodae, map: map});
+  var marker = new google.maps.Marker({position: kosa, map: map});
+  var marker = new google.maps.Marker({position: jeong, map: map});
+  var marker = new google.maps.Marker({position: kohu, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ key }}&callback=initMap">
+    </script>
+{% endblock %}
+  </div>
+</body>
+</html>

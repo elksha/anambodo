@@ -1,0 +1,8 @@
+bookreview/*.log
+bookreview/*.pot
+bookreview/*.pyc
+bookreview/__pycache__/
+book/__pycache__/
+bookreview/local_settings.py
+db.sqlite3
+bookreview/media
