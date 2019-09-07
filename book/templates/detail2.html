@@ -1,105 +1,258 @@
-{% extends 'home.html' %}
 {% load staticfiles %}
-{% block content %}
-<div class="album py-5" style="position:relative; bottom:33px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4" style="max-width:100%;">
-            <div class="card mb-4 shadow-sm" style="width:350px;">
-            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="225px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
-              <title>
-                Placeholder
-              </title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">#</text>
-            </svg>
-              <div class="card-body">
-                <p class="card-text">#</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" style="color:black">View</a></button>
-                  </div>
-                  <small class="text-muted"></small>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style id="stndz-style">div[class*="item-container-obpd"], a[data-redirect*="paid.outbrain.com"], a[onmousedown*="paid.outbrain.com"] { display: none !important; } a div[class*="item-container-ad"] { height: 0px !important; overflow: hidden !important; position: absolute !important; } div[data-item-syndicated="true"] { display: none !important; } .grv_is_sponsored { display: none !important; } .zergnet-widget-related { display: none !important; } </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}?ver=3">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css?" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <title>안암보도</title>
+</head>
+<style>
+      
+  /* GLOBAL STYLES
+  -------------------------------------------------- */
+  /* Padding below the footer and lighter body text */
+  body {
+    color: #5a5a5a;
+  }
+  p, h1, h2 {
+    font-family: 'Noto Sans KR', sans-serif
+  }
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 4rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+  .col-md-7 {
+    padding: 0px 30px;
+  }
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  /* Featurettes
+  ------------------------- */
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    font-family: 'Noto Sans KR', sans-serif;
+    }
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+
+<body>
+    <a href="{% url 'detail2' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
+        <div style="background-image:url('{% static '45.png' %}'); background-size: 1700px 100%; background-repeat:no-repeat; background-position: center; height: 80px;">
+            <!-- <i class="fas fa-book"></i>
+            <div class="blank"></div>
+            <strong style="font-family:Daehan;">안암보도</strong> -->
+        </div>
+        </a>
+      <!-- <div style="border-top-style: solid; border-top-color: pink; border-width: 1px; border-bottom-style: solid; border-bottom-color: pink;">  
+        <ul class="nav nav-tabs">
+  <div class="container d-flex justify-content-between">
+  <div class="item" style="font-size: 0.9rem;">
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}" style="color:black">About</a>
+  </li>
+  <li classs="nav-item">
+    <div class="verline">
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'detail2' %}" style="color:black">Detail</a>
+  </li>
+ </div>
+</div>
+</div>
+</div>
+</ul> -->
+    <main role="main">
+      
+      <div id="myCarousel" class="carousel slide" style="margin-bottom: 1rem; position: relative; bottom: 1px;">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active sinhogrim" data-interval="100000" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            <div class="container">
+              <div class="carousel-caption firsttime">
+                <h1>로딩중</h1>
+                <p>&nbsp;&nbsp;...</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4" style="max-width:100%;">
-            <div class="card mb-4 shadow-sm" style="width:350px;">
-            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="225px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
-              <title>
-                Placeholder
-              </title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">#</text>
-            </svg>
-              <div class="card-body">
-                <p class="card-text">#</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" style="color:black">View</a></button>
-                  </div>
-                  <small class="text-muted"></small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4" style="max-width:100%;">
-            <div class="card mb-4 shadow-sm" style="width:350px;">
-            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="225px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
-              <title>
-                Placeholder
-              </title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">#</text>
-            </svg>
-              <div class="card-body">
-                <p class="card-text">#</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" style="color:black">View</a></button>
-                  </div>
-                  <small class="text-muted"></small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4" style="max-width:100%;">
-            <div class="card mb-4 shadow-sm" style="width:350px;">
-            <svg class="bd-placeholder-imgcard-img-top" width="100%" height="225px" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder:Thumbnail">
-              <title>
-                Placeholder
-              </title>
-              <rect width="100%" height="100%" fill="#55595c"></rect>
-              <text x="50%" text-anchor="middle" y="50%" fill="#eceeef" dy=".3em">#</text>
-            </svg>
-              <div class="card-body">
-                <p class="card-text">#</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" style="color:black">View</a></button>
-                  </div>
-                  <small class="text-muted"></small>
-                </div>
+          <div class="carousel-item sinhogrim2" data-interval="100000" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            <div class="container">
+              <div class="carousel-caption text-right secondtime">
+                <h1>로딩중</h1>
+                <p>&nbsp;&nbsp;...</p>
               </div>
             </div>
           </div>
         </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+      <div style="background-color:rgba(254, 252, 245, 0.432);">
+      <h4 class="featurette-heading" style="text-align: center;"><p style="font-size: 2rem;">오늘도 당신의 하루가<div id="sinhoda"></div></p><p class="text-muted" style="font-size: 1.7rem;">행복하기를 바랍니다!</span></h4>
+      <!-- <hr class="featurette-divider" style="margin: 1rem 0;"> -->
+      <div id="time-elapsed" style="display:none;"></div>
+      <div id="timeof" style="display:none;"></div>
+      <div id="timeand" style="display:none;"></div>
+      <div id="time-elapsed2" style="display:none;"></div>
+      <div id="timeof2" style="display:none;"></div>
+      <div id="timeand2" style="display:none;"></div>
+      </div>
+      </div>
+  </div>
 </div>
-    {% comment %} <div class="bfirst" style="height: 200px;">
-    <h2 style="position: relative; top: 20px;">안암역 사거리</h2>
-    </div>
-    <div class="bsecond" style="height: 200px;">
-    <h2 style="position: relative; top: 20px;">고대 사거리</h2>
-    </div>
-    <div class="bthird" style="height: 200px;">
-    <h2 style="position: relative; top: 20px;">정문</h2>
-    </div>
-    <div class="bfourth" style="height: 200px;">
-    <h2 style="position: relative; top: 20px;">교우회관</h2>
-    </div>
-    <div class="bfifth" style="height: 200px;">
-    <h2 style="position: relative; top: 20px;">사대부고 앞</h2>
-    </div> {% endcomment %}
-{% endblock %}
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+<script>
+var startDateTime = new Date(2019,7,20,13,40,0,0); // YYYY (M-1) D H m s ms (start time and date from DB)
+var startStamp = startDateTime.getTime();
+var startDateTime2 = new Date(2019,7,20,13,40,0,0); // YYYY (M-1) D H m s ms (start time and date from DB)
+var startStamp2 = startDateTime2.getTime();
+
+var newDate = new Date();
+var newStamp = newDate.getTime();
+
+var timer;
+
+function updateClock() {
+    newDate = new Date();
+    newStamp = newDate.getTime();
+    var diff = Math.round((newStamp-startStamp)/1000);
+    var initdiff = diff;
+    var diff2 = Math.round((newStamp-startStamp2)/1000);
+    var initdiff2 = diff2;
+
+    var d = Math.floor(diff/(24*60*60));
+    diff = diff-(d*24*60*60);
+    var h = Math.floor(diff/(60*60));
+    diff = diff-(h*60*60);
+    var m = Math.floor(diff/(60));
+    diff = diff-(m*60);
+    var s = diff;
+    var sinho = Math.round((initdiff%30)/20); //30은 빨간불시간+파란불시간, 20이 빨간불시간
+
+    var d2 = Math.floor(diff2/(24*60*60));
+    diff2 = diff2-(d2*24*60*60);
+    var h2 = Math.floor(diff2/(60*60));
+    diff2 = diff2-(h2*60*60);
+    var m2 = Math.floor(diff2/(60));
+    diff2 = diff2-(m2*60);
+    var s2 = diff2;
+    var sinho2 = Math.round((initdiff2%20)/15);
+    
+    document.getElementById("time-elapsed").innerHTML = d+" day(s), "+h+" hour(s), "+m+" minute(s), "+s+" second(s) working"+initdiff+"총 이만큼 흘렀습니다";
+    document.getElementById("timeof").innerHTML = (Math.round(initdiff/30))%2+"총 이만큼 흘렀습니다";
+    document.getElementById("timeand").innerHTML = Math.round((initdiff%30)/20)+"그렇다";    
+    document.getElementById("time-elapsed2").innerHTML = d+" day(s), "+h+" hour(s), "+m+" minute(s), "+s+" second(s) working"+initdiff+"총 이만큼 흘렀습니다";
+    document.getElementById("timeof2").innerHTML = (Math.round(initdiff2/30))%2+"총 이만큼 흘렀습니다";
+    document.getElementById("timeand2").innerHTML = Math.round((initdiff2%30)/20)+"그렇다";
+    if(sinho==1) {
+      document.getElementsByClassName("firsttime")[0].innerHTML = "<h4>안암역 사거리</h4><br><h1>빨간불</h1>";
+      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}')";
+    } else {
+      document.getElementsByClassName("firsttime")[0].innerHTML = "<h4>안암역 사거리</h4><br><h1>파란불</h1>";
+      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green.png' %}')";
+    }
+    if(sinho2==1) {
+      document.getElementsByClassName("secondtime")[0].innerHTML = "<h4>이공계 정문</h4><br><h1>빨간불</h1>";
+      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}')";
+    } else {
+      document.getElementsByClassName("secondtime")[0].innerHTML = "<h4>이공계 정문</h4><br><h1>파란불</h1>";
+      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green.png' %}')";
+    }
+}
+
+setInterval(updateClock, 1000);
+</script>
+</html>

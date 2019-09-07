@@ -1,71 +1,229 @@
-{% extends 'home.html' %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style id="stndz-style">div[class*="item-container-obpd"], a[data-redirect*="paid.outbrain.com"], a[onmousedown*="paid.outbrain.com"] { display: none !important; } a div[class*="item-container-ad"] { height: 0px !important; overflow: hidden !important; position: absolute !important; } div[data-item-syndicated="true"] { display: none !important; } .grv_is_sponsored { display: none !important; } .zergnet-widget-related { display: none !important; } </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}?ver=3">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/carousel/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css?" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"
+    ></script>
+    <title>안암보도</title>
 </head>
+<style>
+      
+  /* GLOBAL STYLES
+  -------------------------------------------------- */
+  /* Padding below the footer and lighter body text */
+  body {
+    color: #5a5a5a;
+  }
+  p, h1, h2 {
+    font-family: 'Noto Sans KR', sans-serif
+  }
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 4rem;
+  }
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+  .col-md-7 {
+    padding: 0px 30px;
+  }
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  /* Featurettes
+  ------------------------- */
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    font-family: 'Noto Sans KR', sans-serif;
+    }
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+
 <body>
-    {% block content %}
-<div class="leftbar">
-  <div class="imgline">
-  <img src="{{ post.picture.url }}" style="height:400px; width:350px; position:relative; left:100%; top:40px; border-style:solid; border-width:1px; border-color:gray;"/>
-  </div>
-</br>
-    <h2 class="jumbotron-heading" style="font-family:'Daehan'; position:relative; top:240px; left:135%;"><strong>{{ post.title }}</strong></h2>
-</br>
-</div>
-<div class="rightbar" style="position:relative; top:15px; right:70px;">
-<hr width="350" color=lightgray>
-    <h5 class="jumbotron-heading">가격 : {{ post.price }}</h5>
-    <h5>　　　　</h5>
-    <h5 class="jumbotron-heading">점수 : {{ post.score }} / 5</h5>
-</br>
-<hr width="350" color=lightgray>
-</br>
-    <div class="reviewline" style="position:relative; height:150px;">
-    <h5 class="jumbotron-heading" id="review">{{ post.review }}</h5> 
-    </div>
-</br>
-</br>
-</br>
-    <div class='halu'>
-    <div class='hi'>
-      <a class='hey' href="{% url 'home' %}"><button type="button" class="btn btn-primary">글 목록</button></a><br><br>
-      {% if user.is_authenticated and post.author == user.username %}
-      <a class='hey' href="{% url 'edit' post.pk %}"><button type="button" class="btn btn-success">수정하기</button></a><br><br>
-      <a class='hey' href="{% url 'delete' post.pk %}"><button type="button" class="btn btn-danger">지우기</button></a>
-      {% endif %}
-    </div>
-    </div>
-<hr width="700" color=lightgray>
-    <div class='commentline'>
-    <ul>
-      {% for comment in post.comments.all %}
-        <li><strong>{{ comment.author }}</strong>:{{ comment.comment }}
-        {% if user.is_authenticated and comment.author == user.username %}
-        <a href="{% url 'delete_comment' post.pk comment.pk %}" style="color:black"><i class="fas fa-times"></i></a>
-        {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-    </div>
-    <form method="POST">
-      <div class="comment">  
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="blank">
+    <a href="{% url 'home' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
+        <div style="background-image:url('{% static 'title.png' %}'); background-color: #EDEBE1; background-size: contain; background-repeat:no-repeat; background-position: center; height: 80px;">
+            <!-- <i class="fas fa-book"></i>
+            <div class="blank"></div>
+            <strong style="font-family:Daehan;">안암보도</strong> -->
         </div>
-        {% if user.is_authenticated %}
-        <button type="submit" class="btn btn-info">남기기</button>
-        {% else %}
-        <button class="btn btn-info"><a href="{% url 'login' %}" style="color:white">남기기</a></button>
-        {% endif %}
-      </div>
-    </form>
-    {% endblock %}
+        </a>
+        <ul class="nav nav-tabs" style="background-color: rgb(214, 204, 190);">
+  <div class="container d-flex justify-content-between">
+  <div class="item" style="font-size: 0.9rem;">
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}" style="color:black">About</a>
+  </li>
+  <li classs="nav-item">
+    <div class="verline">
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'detail2' %}" style="color:black">Detail</a>
+  </li>
+ </div>
 </div>
+</div>
+</ul>
+    <main role="main">
+    
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom: 1rem; position: relative; bottom: 1px;">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="background-image:url(''); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>어딘가</h1>
+                <p>&nbsp;&nbsp;123</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item" style="background-image:url(''); background-repeat: no-repeat; background-size: cover; background-position: center;">
+            =<div class="container">
+              <div class="carousel-caption text-right">
+                <h1>어딘가</h1>
+                <p>&nbsp;&nbsp;123</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div style="background-color:rgba(254, 252, 245, 0.432);">
+      <h4 class="featurette-heading" style="text-align: center;"><p style="font-size: 2rem;">함께했던 멘티에게</p><p class="text-muted" style="font-size: 1.7rem;">한마디를 남겨보세요!</span></h4>
+      <hr class="featurette-divider" style="margin: 1rem 0;">
+      <div class='halu'>
+        <div class='hi'>
+          {% if user.is_authenticated and post.author == user.username %}
+          <a class='hey' href="{% url 'edit' post.pk %}"><button type="button" class="btn btn-success">수정하기</button></a><br><br>
+          <a class='hey' href="{% url 'delete' post.pk %}"><button type="button" class="btn btn-danger">지우기</button></a>
+          {% endif %}
+        </div>
+        </div>
+        <div class="col-md-7" style="margin: 0 auto;">
+          <div clas="ptags" style="display: flex; justify-content: center; flex-direction: column;">
+            <div class='commentline'>
+              <ul>
+                {% for comment in post.comments.all %}
+                  <li><strong>{{ comment.author }}</strong>:{{ comment.comment }}
+                  {% if user.is_authenticated and comment.author == user.username %}
+                  <a href="{% url 'delete_comment' post.pk comment.pk %}" style="color:black"><i class="fas fa-times"></i></a>
+                  {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-7" style="margin: 0 auto;">
+        <div class="commentn" style="margin: 0 auto;">
+              <form method="POST">
+                <div class="comment" style="display: flex; justify-content: center;">  
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <div class="blank">
+                  </div>
+                  {% if user.is_authenticated %}
+                  <button type="submit" class="btn btn-info" style="height: 60px;">댓글</button>
+                  {% else %}
+                  <button class="btn btn-info" style="height: 60px;"><a href="{% url 'login' %}" style="color:white;">댓글</a></button>
+                  {% endif %}
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

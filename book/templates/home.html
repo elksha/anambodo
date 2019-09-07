@@ -14,7 +14,7 @@
 </head>
 <body>
     <a href="{% url 'home' %}" style="position:relative; margin-bottom: 0px; padding-bottom: 0px;">
-    <div style="background-image:url('{% static '45.png' %}'); background-size: cover; background-position: center; height: 100px;">
+    <div style="background-image:url('{% static '45.png' %}'); background-size: cover; background-position: center; height: 80px;">
         <!-- <i class="fas fa-book"></i>
         <div class="blank"></div>
         <strong style="font-family:Daehan;">안암보도</strong> -->
@@ -41,7 +41,7 @@
   <div style="border-top-style: solid; border-top-color: pink; border-width: 1px; border-bottom-style: solid; border-bottom-color: pink;">
     <ul class="nav nav-tabs bg-light">
     <div class="container d-flex justify-content-between">
-    <div class="item">
+    <div class="item" style="font-size: 0.9rem;">
   <li class="nav-item">
     <a class="nav-link" href="{% url 'about' %}" style="color:black">About</a>
   </li>
@@ -53,17 +53,13 @@
     <a class="nav-link" href="{% url 'detail2' %}" style="color:black">Detail</a>
   </li>
    </div>
-   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
   </div>
   </div>
 </ul>
 </div>
   <div class="next">
 {% block content %}
-    <section class="jumbotron text-center" style="background-image: url( '{% static '14.png' %}' ); background-size: cover; background-position: center; height: 300px; margin-bottom: 0px;">
+    <section class="jumbotron text-center" style="margin-bottom: 0rem; background-image: url( '{% static '14.png' %}' ); background-size: cover; background-position: center; height: 300px; margin-bottom: 0px;">
       <div class="container">
         <h1 style="font-family: 'om4'; font-size: 40px;"></h1>
         <div style="position:relative; height:10px;"></div>
@@ -73,7 +69,7 @@
         </p>
       </div>
     </section>
-        <div id="map" style="height: 600px; width: 100%;"></div>
+        <div id="map" style="height: 60vh; width: 100%;"></div>
     <script>
 // Initialize and add the map
 function initMap() {
