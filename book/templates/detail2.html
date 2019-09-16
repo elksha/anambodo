@@ -150,7 +150,7 @@
           <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active sinhogrim" data-interval="false" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+          <div class="carousel-item active sinhogrim" data-interval="false" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red2.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <div class="container">
               <div class="carousel-caption firsttime">
                 <h1>로딩중</h1>
@@ -158,7 +158,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item sinhogrim2" data-interval="false" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+          <div class="carousel-item sinhogrim2" data-interval="false" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red2.png' %}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
             <div class="container">
               <div class="carousel-caption text-right secondtime">
                 <h1>로딩중</h1>
@@ -239,17 +239,17 @@ function updateClock() {
     document.getElementById("timeand2").innerHTML = Math.round((initdiff2%30)/20)+"그렇다";
     if(sinho==1) {
       document.getElementsByClassName("firsttime")[0].innerHTML = "<h4>안암역 사거리</h4><br><h1>빨간불</h1>";
-      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}')";
+      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red2.png' %}')";
     } else {
       document.getElementsByClassName("firsttime")[0].innerHTML = "<h4>안암역 사거리</h4><br><h1>파란불</h1>";
-      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green.png' %}')";
+      document.getElementsByClassName("sinhogrim")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green2.png' %}')";
     }
     if(sinho2==1) {
       document.getElementsByClassName("secondtime")[0].innerHTML = "<h4>이공계 정문</h4><br><h1>빨간불</h1>";
-      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red.png' %}')";
+      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'red2.png' %}')";
     } else {
       document.getElementsByClassName("secondtime")[0].innerHTML = "<h4>이공계 정문</h4><br><h1>파란불</h1>";
-      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green.png' %}')";
+      document.getElementsByClassName("sinhogrim2")[0].style.backgroundImage="linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'green2.png' %}')";
     }
 }
 
