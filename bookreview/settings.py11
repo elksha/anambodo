@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os, mimetypes, json
+import dj_database_url
 
 mimetypes.add_type("image/svg+xml", ".svg", True)
 mimetypes.add_type("image/svg+xml", ".svgz", True)
@@ -18,19 +19,16 @@ mimetypes.add_type("image/svg+xml", ".svgz", True)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# with open(os.path.join(BASE_DIR, 'bookreview/config/index.json')) as f:
-#     secrets = json.loads(f.read())
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dw)ipthxm94ji0pe6m$wdeu*96a=64%rxlm+4=o%srp8epesl0'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'dw)ipthxm94ji0pe6m$wdeu*96a=64%rxlm+4=o%srp8epesl0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anambodo.herokuapp.com']
 
 
 # Application definition
@@ -42,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'book.apps.BookConfig',
+    'book.apps.BookConfig'
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -135,10 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # S3 Storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# AWS Access
-# AWS_ACCESS_KEY_ID = secrets['AWS']['ACCESS_KEY_ID']
-# AWS_SECRET_ACCESS_KEY = secrets['AWS']['SECRET_ACCESS_KEY']
-# AWS_STORAGE_BUCKET_NAME = secrets['AWS']['STORAGE_BUCKET_NAME']
-# AWS_S3_SIGNATURE_VERSION = "s3v4"
-# AWS_S3_REGION_NAME = 'ap-northeast-2'
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# GOOGLEAPI
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
