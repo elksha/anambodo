@@ -195,7 +195,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 <script>
-var startDateTime = new Date(2019,8,11,15,58,18,0); // YYYY (M-1) D H m s ms (start time and date from DB)
+var startDateTime = new Date(2019,8,19,15,18,30,0); // YYYY (M-1) D H m s ms (start time and date from DB)
 var startStamp = startDateTime.getTime();
 var startDateTime2 = new Date(2019,7,20,13,40,0,0); // YYYY (M-1) D H m s ms (start time and date from DB)
 var startStamp2 = startDateTime2.getTime();
@@ -208,19 +208,19 @@ var timer;
 function updateClock() {
     newDate = new Date();
     newStamp = newDate.getTime();
-    var diff = Math.round((newStamp-startStamp)/1000);
+    var diff = Math((newStamp-startStamp)/1000);
     var initdiff = diff;
-    var diff2 = Math.round((newStamp-startStamp2)/1000);
+    var diff2 = Math((newStamp-startStamp2)/1000);
     var initdiff2 = diff2;
 
-    var d = Math.floor(diff/(24*60*60));
+    var d = Math(diff/(24*60*60));
     diff = diff-(d*24*60*60);
-    var h = Math.floor(diff/(60*60));
+    var h = Math(diff/(60*60));
     diff = diff-(h*60*60);
-    var m = Math.floor(diff/(60));
+    var m = Math(diff/(60));
     diff = diff-(m*60);
     var s = diff;
-    var sinho = Math.round((initdiff%130)/97); //30은 빨간불시간+파란불시간, 20이 빨간불시간
+    var sinho = Math.round((initdiff%130.067)/97); //30은 빨간불시간+파란불시간, 20이 빨간불시간
 
     var d2 = Math.floor(diff2/(24*60*60));
     diff2 = diff2-(d2*24*60*60);
