@@ -222,7 +222,7 @@ function updateClock() {
     var m = Math.floor(diff/(60));
     diff = diff-(m*60);
     var s = diff+30;
-    var sinho = Math.floor((initdiff%130.067)/33); //30은 빨간불시간+파란불시간, 20이 빨간불시간
+    var sinho = Math.floor((initdiff%numinput)/33); //30은 빨간불시간+파란불시간, 20이 빨간불시간
     var dd = initdiff%130.067
 
     var d2 = Math.floor(diff2/(24*60*60));
