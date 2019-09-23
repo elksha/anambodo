@@ -205,6 +205,7 @@ var newDate = new Date();
 var newStamp = newDate.getTime();
 
 var timer;
+var numinput = prompt('Gugan');
 
 function updateClock() {
     newDate = new Date();
@@ -232,7 +233,6 @@ function updateClock() {
     diff2 = diff2-(m2*60);
     var s2 = diff2;
     var sinho2 = Math.round((initdiff2%20)/15);
-    var numinput = prompt('Gugan');
 
     var time1 = 130-Math.round((initdiff%numinput));
     var time2 = 33-Math.round((initdiff%numinput));
