@@ -232,9 +232,10 @@ function updateClock() {
     diff2 = diff2-(m2*60);
     var s2 = diff2;
     var sinho2 = Math.round((initdiff2%20)/15);
-    
-    var time1 = 130-Math.round((initdiff%130.067));
-    var time2 = 33-Math.round((initdiff%130.067));
+    var numinput = prompt('Gugan');
+
+    var time1 = 130-Math.round((initdiff%numinput));
+    var time2 = 33-Math.round((initdiff%numinput));
     document.getElementById("time-elapsed").innerHTML = dd+"//"+sinho
     document.getElementById("timeof").innerHTML = (Math.round(initdiff/30))%2+"총 이만큼 흘렀습니다";
     document.getElementById("timeand").innerHTML = Math.round((initdiff%30)/20)+"그렇다";    
